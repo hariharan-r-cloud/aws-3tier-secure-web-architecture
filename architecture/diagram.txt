@@ -1,1 +1,11 @@
+AWS 3 Tier Architecture Diagram will be added here.
 
+Components:
+
+1. Internet Gateway
+2. Application Load Balancer
+3. EC2 Instances (Web Tier)
+4. EC2 Instances (Application Tier)
+5. RDS MySQL Database
+6. Private and Public Subnets
+7. Auto Scaling Group
