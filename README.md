@@ -1,43 +1,82 @@
-# AWS Secure 3-Tier Web Architecture
+# 🚀 AWS Secure 3-Tier Architecture
 
-This project demonstrates how to design and deploy a secure and scalable 3-tier web architecture on AWS.
+## 📌 Overview
 
-## Architecture Overview
+This project demonstrates a production-style secure 3-tier architecture on AWS using public and private subnets, a bastion host, and an Application Load Balancer.
 
-The architecture consists of three layers:
+The architecture ensures secure access to private resources while allowing controlled public traffic.
 
-1. Presentation Layer (Web Tier)
-2. Application Layer (App Tier)
-3. Database Layer (DB Tier)
+---
 
-Traffic flows as follows:
+## 🏗️ Architecture Diagram
 
-User → Load Balancer → EC2 Application Servers → RDS Database
+![Architecture](./screenshots/vpc-architecture.png)
 
-## AWS Services Used
+---
 
-- Amazon VPC
-- Amazon EC2
-- Amazon RDS
-- Elastic Load Balancer
-- Auto Scaling
-- Internet Gateway
-- NAT Gateway
-- Security Groups
+## ⚙️ Services Used
 
-## Architecture Diagram
+* Amazon VPC
+* EC2 (Public & Private Instances)
+* Application Load Balancer (ALB)
+* NAT Gateway
+* Internet Gateway
+* Security Groups
 
-(To be added)
+---
 
-## Project Steps
+## 🔐 Architecture Flow
 
-1. Create VPC and networking components
-2. Configure public and private subnets
-3. Launch EC2 application servers
-4. Configure RDS database
-5. Set up Application Load Balancer
-6. Configure Auto Scaling Group
+* User sends request to Application Load Balancer
+* ALB routes traffic to private EC2 (App Server)
+* App server is not publicly accessible
+* Bastion host (public EC2) is used for SSH access
+* NAT Gateway allows outbound internet access from private subnet
 
-## Goal of the Project
+---
 
-To demonstrate a production-style secure cloud architecture using AWS services.
+## 📸 Screenshots
+
+### 🔹 Application Output
+
+![Output](./screenshots/final-output.png)
+
+### 🔹 Load Balancer
+
+![ALB](./screenshots/alb-details.png)
+
+### 🔹 Target Group Health
+
+![Target](./screenshots/target-group.png)
+
+### 🔹 App Security Group
+
+![App SG](./screenshots/app-sg-rules.png)
+
+### 🔹 ALB Security Group
+
+![ALB SG](./screenshots/alb-sg-rules.png)
+
+### 🔹 Bastion SSH Access
+
+![Bastion](./screenshots/bastion-access.png)
+
+---
+
+## 🧠 Key Learnings
+
+* Designed a secure AWS architecture using public and private subnets
+* Implemented bastion host pattern for secure access
+* Configured Application Load Balancer and target groups
+* Understood security group-based access control
+* Debugged real issues like:
+
+  * Target group unhealthy state
+  * Security group misconfiguration
+  * SSH connectivity issues
+
+---
+
+## 💡 Conclusion
+
+This project helped me understand real-world cloud architecture, networking, and security practices in AWS.
